@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2등신 건담 신발 던지기 게임!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. Intro Screen: 인원 설정 -->
+    <div id="intro-screen" class="screen active">
+        <div class="glass-card">
+            <h1>🤖 건담 신발 던지기 게임</h1>
+            <p>몇 명이서 플레이할까요?</p>
+            <div class="player-input-group">
+                <button id="minus-btn" class="circle-btn">-</button>
+                <span id="player-count">2</span><span> 명</span>
+                <button id="plus-btn" class="circle-btn">+</button>
+            </div>
+            <button id="start-btn" class="primary-btn">게임 시작!</button>
+        </div>
+    </div>
+
+    <!-- 2. Main Game Screen: 실제 게임 화면 -->
+    <div id="game-screen" class="screen">
+        <div class="top-bar">
+            <span id="turn-indicator">플레이어 1 차례</span>
+        </div>
+        
+        <div class="game-area">
+            <div class="gundam-container">
+                <img src="gundam.png" id="gundam-img" alt="SD 건담">
+                <img src="shoe.png" id="shoe-img" alt="신발">
+            </div>
+            
+            <div class="distance-marker hidden" id="distance-marker">
+                <span id="distance-text">0m</span>
+            </div>
+            
+            <div class="gauge-container">
+                <div class="gauge-bar">
+                    <div id="gauge-fill" class="gauge-fill"></div>
+                </div>
+                <!-- 노란색 목표 구역 (타이밍 맞추기) -->
+                <div class="target-zone"></div>
+            </div>
+        </div>
+
+        <div class="bottom-controls">
+            <button id="action-btn" class="primary-btn"> 파워 충전 중... 누르세요!</button>
+            <p class="guide-text">게이지가 우측의 노란색 구역에 올 때 타이밍을 맞춰서 클릭하세요!</p>
+        </div>
+    </div>
+
+    <!-- 3. Result Screen: 승자 순위표 -->
+    <div id="result-screen" class="screen">
+        <div class="glass-card result-card">
+            <h1>🏆 게임 결과</h1>
+            <div id="ranking-list" class="ranking-list">
+                <!-- Javascript 안에서 동적으로 추가 -->
+            </div>
+            <button id="restart-btn" class="primary-btn">다시 하기</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주사위 게임</title>
+    <meta name="description" content="두 개의 주사위를 굴리고 숫자의 합을 파악해 보세요!">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-container">
+        <h1>🎲 주사위를 굴려봐요!</h1>
+        
+        <div class="dice-wrapper">
+            <div class="dice" id="dice1" aria-label="첫 번째 주사위" role="img">
+                <!-- 주사위 눈이 스크립트를 통해 생성됩니다 -->
+            </div>
+            <div class="dice" id="dice2" aria-label="두 번째 주사위" role="img">
+                <!-- 주사위 눈이 스크립트를 통해 생성됩니다 -->
+            </div>
+        </div>
+
+        <button id="rollBtn">주사위 굴리기</button>
+        
+        <div id="result" class="result hidden" aria-live="polite">
+            결과 대기 중...
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
