@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트 최저가 탐색기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 헤더 -->
+        <header>
+            <div class="logo">
+                <i class="ri-search-eye-line"></i>
+                <span>SmartPrice</span>
+            </div>
+            <button id="settings-btn" class="icon-btn" title="API 설정">
+                <i class="ri-settings-4-line"></i>
+            </button>
+        </header>
+
+        <!-- 메인 검색 영역 -->
+        <main>
+            <div class="search-hero">
+                <h1>어떤 상품을 찾으시나요?</h1>
+                <p>네이버 쇼핑의 실시간 최저가를 편하게 확인하세요.</p>
+                <form id="search-form" class="search-box">
+                    <input type="text" id="search-input" placeholder="예: 아이패드 에어 6, 햇반 1박스" autocomplete="off" required>
+                    <button type="submit" class="search-btn"><i class="ri-search-line"></i> 검색</button>
+                </form>
+            </div>
+
+            <!-- 로딩 애니메이션 -->
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+                <p>최저가를 찾고 있습니다...</p>
+            </div>
+
+            <!-- 상품 검색 결과 그리드 -->
+            <div id="results-container" class="results-grid hidden">
+                <!-- script.js를 통해 상품 카드가 주입됩니다 -->
+            </div>
+            
+            <div id="empty-state" class="empty-state hidden">
+                <i class="ri-ghost-line"></i>
+                <p>상품 검색 결과가 없습니다. 다른 단어로 검색해보세요.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- API 설정 팝업 모달 -->
+    <div id="api-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ API 키 설정</h2>
+                <button id="modal-close" class="icon-btn"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-desc">네이버 개발자 센터에서 발급한 API 키를 입력해주세요.<br>(이 정보는 외부로 전송되지 않고 현재 브라우저에만 저장됩니다!)</p>
+                <div class="form-group">
+                    <label for="client-id">Client ID</label>
+                    <input type="text" id="client-id" placeholder="Client ID를 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label for="client-secret">Client Secret</label>
+                    <input type="password" id="client-secret" placeholder="Client Secret을 입력하세요">
+                </div>
+                <a href="https://developers.naver.com/apps/#/register" target="_blank" class="help-link">🚀 키 발급 가이드 보러가기 (네이버 디벨로퍼스) <i class="ri-external-link-line"></i></a>
+            </div>
+            <div class="modal-footer">
+                <button id="save-api-btn" class="primary-btn">저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

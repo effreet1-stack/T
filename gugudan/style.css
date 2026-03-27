@@ -1,0 +1,254 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --background-c: #f7fff7;
+    --text-color: #2c3e50;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Jua', sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Decorations (Glassmorphism blobs) */
+.background-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-color);
+    top: -50px;
+    left: -50px;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--secondary-color);
+    bottom: -100px;
+    right: -50px;
+    animation-delay: -3s;
+}
+
+.circle-3 {
+    width: 250px;
+    height: 250px;
+    background: var(--accent-color);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -6s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.1); }
+}
+
+.game-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 10px rgba(255,255,255,0.4);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1;
+    text-align: center;
+    position: relative;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.score-board strong {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.animal-avatar {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.speech-bubble {
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 3px solid var(--accent-color);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--accent-color) transparent;
+}
+
+.question-text {
+    font-size: 3.5rem;
+    color: var(--text-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 150px;
+    padding: 15px;
+    font-size: 2rem;
+    border: 3px solid #eee;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.05);
+}
+
+input[type="number"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 5px rgba(78, 205, 196, 0.2);
+}
+
+/* Chrome, Safari, Edge, Opera 숨기기 (넘버 input 화살표) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.glow-button {
+    background: linear-gradient(45deg, var(--secondary-color), #2db5a9);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Jua', sans-serif;
+    box-shadow: 0 10px 20px rgba(78, 205, 196, 0.4);
+    transition: all 0.2s;
+}
+
+.glow-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(78, 205, 196, 0.6);
+}
+
+.glow-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(78, 205, 196, 0.4);
+}
+
+.feedback-message {
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 20px;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.feedback-message.hidden {
+    display: none;
+}
+
+.feedback-success {
+    background-color: rgba(78, 205, 196, 0.2);
+    color: #2db5a9;
+    border: 2px solid var(--secondary-color);
+}
+
+.feedback-error {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #e63946;
+    border: 2px solid var(--primary-color);
+}
+
+/* 칭찬 애니메이션 (별가루) 용 */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f2d74e;
+    z-index: 10;
+}

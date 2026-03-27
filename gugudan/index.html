@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재미있는 구구단 게임!</title>
+    <meta name="description" content="초등학생들을 위한 구구단 연습 게임입니다. 귀여운 동물들과 함께 재미있게 구구단을 외워보세요!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-decor">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+    
+    <div class="game-container">
+        <header>
+            <h1>🎈 구구단 모험 🎈</h1>
+            <div class="score-board">
+                <span>점수: <strong id="score">0</strong>점</span>
+                <span>최고 점수: <strong id="high-score">0</strong>점</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="question-container">
+                <div class="animal-avatar" id="avatar">🐯</div>
+                <div class="speech-bubble">
+                    <span id="question" class="question-text">2 x 3 = ?</span>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input type="number" id="answer" autocomplete="off" placeholder="정답은?" autofocus>
+                <button id="submit-btn" class="glow-button">확인!</button>
+            </div>
+
+            <div id="feedback" class="feedback-message hidden">
+                <!-- 피드백 메시지가 여기에 나타납니다 -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
